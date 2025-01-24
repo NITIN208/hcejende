@@ -118,26 +118,30 @@ elements = {
     117: {"name": "Tennessine", "symbol": "Ts", "electronic_configuration": "[Rn] 5f^14 6d^10 7p^5", "properties": "Radioactive, used in scientific research"},
     118: {"name": "Oganesson", "symbol": "Og", "electronic_configuration": "[Rn] 5f^14 6d^10 7s^2 7p^6", "properties": "Noble gas, highly unstable and radioactive"}
 }
-
-at = int(input("Enter the atomic number of the element (1-118): "))
+while True:
+    
+ at = int(input("Enter the atomic number of the element (1-118): "))
+ if at<1 or at>118:
+     print("Enter a number between 1 and 118")
+ else:
+     break
 for x in elements:
-     if x==at:
-         print(elements[x])
-if at < 1 or at > 118:
-    print("Invalid atomic number. Please enter a number between 1 and 118.")
-else:
+    if x == at:
+        print("Name:",elements[x]['name'])
+        print("Symbol:", elements[x]['symbol'])
+        print("Electronic Configuration:", elements[x]['electronic_configuration'])
+        print("Properties:", elements[x]['properties'])
     
-    
-    config = elements[at]["electronic_configuration"]
-    if 's' in config.split()[-1]:
+config= elements[at]["electronic_configuration"]
+if 's' in config.split()[-1]:
         print("s-block")
-    elif 'p' in config.split()[-1]:
+elif 'p' in config.split()[-1]:
         print("p-block")
-    elif 'd' in config.split()[-1]:
+elif 'd' in config.split()[-1]:
         print("d-block")
-    elif 'f' in config.split()[-1]:
+elif 'f' in config.split()[-1]:
         print("f-block")
-    else:
+else:
         block = "Unknown"
 if at <=2:
     print("period 1")
@@ -161,13 +165,5 @@ elif at >=57 and at <=70:
     print("Lanthanoid")
 elif at >=89 and at <=102:
     print("Actinide")
-
-
-
-
-
-
-
-    
 
 
